@@ -3,6 +3,11 @@
 
     $(function() {
 
+        // Set up ajax form handling via formspree.io
+
+        // TODO
+
+
         // Add 'home' link for logo back (appears to be quashed by Foundation on small screens)
         $("nav.top-bar > a").click(function(){
             window.location.href='http://escondrijo.com';
