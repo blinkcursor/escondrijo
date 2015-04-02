@@ -16,7 +16,10 @@
             }).done(function(data) {
                 console.log("data = " + data);
                 if (data.success) {
-                    $('#request').append('<div class="alert-box success">Yes ' + data.message + '</div>');
+                    $('input[type="submit"]').remove();
+                    $('#request').append('<div class="alert-box success">Thank you! We\'ll be in touch soon.</div>');
+                } else {
+                    $('#request').append('<div class="alert-box alert">Oops. Something went wrong, please try again.</div>');
                 }
             });
             event.preventDefault();
