@@ -5,8 +5,19 @@
 
         // Set up ajax form handling via formspree.io
 
-        // TODO
-
+        $('#request').submit(function(event){
+            var formData = $(this).serialize();
+            console.log("formData = " + formData);
+            $.ajax({
+                url: "//formspree.io/nigel.m.anderson@gmail.com",
+                method: "POST",
+                data: formData,
+                dataType: "json"
+            }).done(function(data) {
+                console.log("data = " + data);
+            });
+            event.preventDefault();
+        });
 
         // Add 'home' link for logo back (appears to be quashed by Foundation on small screens)
         $("nav.top-bar > a").click(function(){
