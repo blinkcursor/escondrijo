@@ -15,6 +15,9 @@
                 dataType: "json"
             }).done(function(data) {
                 console.log("data = " + data);
+                if (data.success) {
+                    $('#request').append('<div class="alert-box success">Yes ' + data.message + '</div>');
+                }
             });
             event.preventDefault();
         });
