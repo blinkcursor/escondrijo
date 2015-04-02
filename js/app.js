@@ -14,7 +14,7 @@
 
             var formData = $(this).serialize();
             $.ajax({
-                url: "//formspree.io/nigel.m.anderson@gmail.com",
+                url: "//formspree.io/info@escondrijo.com",
                 method: "POST",
                 data: formData,
                 dataType: "json"
