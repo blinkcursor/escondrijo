@@ -6,20 +6,24 @@
         // Set up ajax form handling via formspree.io
 
         $('#request').submit(function(event){
+
+            var lang = $('html').attr('lang');
+
+            var msgSuccess = (lang == 'es') ? "Gracias. Nos ponemos en contacto pronto." : "Thank you! We'll be in touch soon.";
+            var msgFail = (lang == 'es') ? "Disculpe. Se parece que había una problema. Intenta de nuevo por favor." : "Oops. Something went wrong, please try again.";
+
             var formData = $(this).serialize();
-            console.log("formData = " + formData);
             $.ajax({
                 url: "//formspree.io/nigel.m.anderson@gmail.com",
                 method: "POST",
                 data: formData,
                 dataType: "json"
             }).done(function(data) {
-                console.log("data = " + data);
                 if (data.success) {
                     $('input[type="submit"]').remove();
-                    $('#request').append('<div class="alert-box success">Thank you! We\'ll be in touch soon.</div>');
+                    $('#request').append('<div class="alert-box success">' + msgSuccess + '</div>');
                 } else {
-                    $('#request').append('<div class="alert-box alert">Oops. Something went wrong, please try again.</div>');
+                    $('#request').append('<div class="alert-box alert">' + msgFail + '</div>');
                 }
             });
             event.preventDefault();
