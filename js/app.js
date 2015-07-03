@@ -7,6 +7,7 @@
 
         $('#request').submit(function(event){
 
+            event.preventDefault();
             var lang = $('html').attr('lang');
 
             var msgSuccess = (lang == 'es') ? "Gracias. Nos ponemos en contacto pronto." : "Thank you! We'll be in touch soon.";
@@ -26,7 +27,7 @@
                     $('#request').append('<div class="alert-box alert">' + msgFail + '</div>');
                 }
             });
-            event.preventDefault();
+
         });
 
         // Add 'home' link for logo back (appears to be quashed by Foundation on small screens)
